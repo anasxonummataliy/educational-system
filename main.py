@@ -6,3 +6,7 @@ def main():
     draw_box("Talabalar Taraqqiyoti va Davomatini Boshqarish Tizimi")
     to_choice = {}
     choice = input()
+
+
+if __name__ == '__main__':
+    main()
