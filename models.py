@@ -1,80 +1,58 @@
 from abc import ABC, abstractmethod
-from typing import List
-from datetime import date
 
 
 class User(ABC):
-    def __init__(self, username: str, password: str):
-        self._username = username
-        self._password = password
-
-    @property
-    def username(self):
-        return self._username
-
-    def check_password(self, pwd: str) -> bool:
-        return self._password == pwd
+    def __init__(self, user_id, name, role, password):
+        self.user_id = user_id
+        self.name = name
+        self.role = role
+        self.__password = password  # Inkapsulyatsiya
 
     @abstractmethod
-    def role(self) -> str:
-        raise NotImplementedError()
+    def display_menu(self):
+        pass
 
-
-class Admin(User):
-    def role(self) -> str:
-        return "admin"
-
-
-class Teacher(User):
-    def role(self) -> str:
-        return "teacher"
-
-
-class Student(User):
-    def __init__(self, username: str, password: str):
-        super().__init__(username, password)
-        self._grades: List[float] = []
-        self._attendance: List[str] = [] 
-
-    def role(self) -> str:
-        return "student"
-
-    def add_grade(self, value: float):
-        self._grades.append(float(value))
-
-    def add_attendance(self, present: bool, for_date: str | None = None):
-        d = for_date or date.today().isoformat()
-        self._attendance.append(f"{d}:{int(bool(present))}")
-
-    @property
-    def grades(self) -> List[float]:
-        return list(self._grades)
-
-    @property
-    def attendance(self) -> List[str]:
-        return list(self._attendance)
-
-    @property
-    def average(self) -> float:
-        if not self._grades:
-            return 0.0
-        return sum(self._grades) / len(self._grades)
-
-    def at_risk(self, threshold: float = 50.0) -> bool:
-        return self.average < threshold
+    def check_password(self, password):
+        return self.__password == password
 
     def to_dict(self):
         return {
-            "type": "student",
-            "username": self._username,
-            "password": self._password,
-            "grades": self._grades,
-            "attendance": self._attendance,
+            "user_id": self.user_id,
+            "name": self.name,
+            "role": self.role,
+            "password": self.__password,
         }
 
-    @staticmethod
-    def from_dict(d: dict):
-        s = Student(d["username"], d.get("password", ""))
-        s._grades = d.get("grades", [])
-        s._attendance = d.get("attendance", [])
-        return s
+
+class Student(User):
+    def __init__(self, user_id, name, password, grades=None, attendance=None):
+        super().__init__(user_id, name, "Student", password)
+        self.grades = grades if grades else {}
+        self.attendance = attendance if attendance else []
+
+    def display_menu(self):
+        print(f"\n--- Student Menu ({self.name}) ---")
+        print("1. View Grades\n2. View Attendance\n3. Logout")
+
+    def to_dict(self):
+        data = super().to_dict()
+        data.update({"grades": self.grades, "attendance": self.attendance})
+        return data
+
+
+class Teacher(User):
+    def __init__(self, user_id, name, password):
+        super().__init__(user_id, name, "Teacher", password)
+
+    def display_menu(self):
+        print(f"\n--- Teacher Menu ({self.name}) ---")
+        print("1. Mark Attendance\n2. Assign Grade\n3. View Analytics\n4. Logout")
+
+
+class Admin(User):
+    def __init__(self, user_id, name, password):
+        super().__init__(user_id, name, "Admin", password)
+
+    def display_menu(self):
+        print(f"\n--- Admin Menu ({self.name}) ---")
+        print("1. Add User\n2. Delete User\n3. View Logs\n4. Logout")
