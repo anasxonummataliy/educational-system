@@ -3,6 +3,7 @@ from models import Admin, Teacher, Student
 from decorators import require_role, log_action
 from dataclasses import dataclass
 from reports import generate_student_report, generate_all_reports
+from utils import draw_box
 
 
 @dataclass
@@ -30,7 +31,7 @@ class ConsoleUI:
                 print(colored(f"Xato: {e}", "red"))
 
     def show_welcome(self):
-        print(colored("=== Universitet Talabalar Boshqaruvi Tizimi ===", "green"))
+        draw_box("Universitet Talabalar Boshqaruvi Tizimi", "green")
 
     def login(self) -> bool:
         users = self.storage.list_users()

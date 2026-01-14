@@ -16,7 +16,6 @@ def generate_student_report(student, base: Path | None = None) -> Tuple[Path, Pa
     txt_path = base_dir / f"{safe_name}_report.txt"
     csv_path = base_dir / f"{safe_name}_report.csv"
 
-    # TXT
     lines = [
         f"Talaba hisobot: {student.username}",
         f"O'rtacha: {student.average:.2f}",
@@ -26,7 +25,6 @@ def generate_student_report(student, base: Path | None = None) -> Tuple[Path, Pa
     ]
     txt_path.write_text("\n".join(lines), encoding="utf-8")
 
-    # CSV - simple key,value rows
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["maydon", "qiymat"])

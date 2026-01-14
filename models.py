@@ -34,7 +34,7 @@ class Student(User):
     def __init__(self, username: str, password: str):
         super().__init__(username, password)
         self._grades: List[float] = []
-        self._attendance: List[str] = []  # ISO dates
+        self._attendance: List[str] = [] 
 
     def role(self) -> str:
         return "student"

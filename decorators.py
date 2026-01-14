@@ -1,13 +1,13 @@
 from functools import wraps
 from datetime import datetime
 from typing import Callable
+from pathlib import Path
 
 
 def require_role(*allowed_roles):
     def deco(func: Callable):
         @wraps(func)
         def wrapper(session, *args, **kwargs):
-            # session may be a Session object or the ConsoleUI instance.
             user = getattr(session, "current_user", None)
             if user is None:
                 parent = getattr(session, "session", None)
@@ -47,6 +47,3 @@ def log_action(logfile: str = "data/logs.txt"):
         return wrapper
 
     return deco
-
-
-from pathlib import Path
