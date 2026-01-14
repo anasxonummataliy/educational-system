@@ -1,0 +1,2 @@
+2026-01-14 23:21:06,107 | MA'LUMOT | Foydalanuvchi: admin | Amal: admin_menu | args=(<models.Admin object at 0x1058d7a10>,) kwargs={}
+2026-01-14 23:23:10,927 | MA'LUMOT | Foydalanuvchi: anasxon | Amal: student_menu | args=(<models.Student object at 0x1058d7b60>,) kwargs={}
