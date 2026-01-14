@@ -1,0 +1,88 @@
+
+Loyiha tavsifi:
+Universitetning yangi dasturlash o'quv rejasini ishga tushirayotgan xususiy universitetga kichik dasturchi (junior developer) sifatida ishga qabul qilindingiz. Sizning vazifangiz –  hech qanday freymvorklarsiz yozilgan, konsol asosidagi Talabalar Taraqqiyoti va Davomatini Boshqarish Tizimini ishlab chiqish.
+Universitet tizimning talabalar davomatini kuzatishi, baholarni qayd etishi, akademik taraqqiyotni baholashi va sodda analitik hisobotlarni yaratishini istaydi.
+Universitet tizimning miqyoslashuvchan (scalable), modulli va kelajakka mos bo'lishini talab qiladi, shunda keyinchalik u grafik foydalanuvchi interfeysi (GUI) yoki veb platformaga integratsiya qilinishi mumkin. Muassasa qat'iy akademik qoidalar bilan ish olib borishini hisobga olgan holda, dasturingiz aniq tuzilish, kuchli validatsiya (tekshirish) va yaxshi dasturlash amaliyotlarini o'z ichiga olishi shart.
+Funktsional talablar:
+Tizimdan Foydalanuvchi Uch Rol
+Admin: foydalanuvchilarni boshqaradi (yaratish, o‘chirish, parollarni tiklash) va loglarni (yozuvlarni) ko‘radi.
+O‘qituvchi: davomatni, topshiriq baholarini qayd etadi va analitik ma’lumotlarni ko‘radi.
+Talaba: shaxsiy taraqqiyotini, davomat tarixini va akademik holatini ko‘radi.
+Tizim barcha ma’lumotlarni fayllar orqali (JSON, CSV yoki TXT) yuklashi va saqlashi kerak. U Abstraktsiya, Vorislik (Inheritance), Inkapsulyatsiya, Polimorfizm kabi Obyektga Yo‘naltirilgan Dasturlash (OYD) tamoyillarini hamda modulllilik va kirishni nazorat qilish uchun funksiyalar va dekoratorlardan foydalanishni namoyish etishi shart.
+Ilova faqat konsolda (terminalda) ishlashi kerak:
+Funktsional Talablar
+1-Vazifa – Ilova va Algoritm Dizayni
+Siz Talabalarni Boshqarish Tizimining asosiy mantig‘ini loyihalashingiz shart. Dizayn bo‘limingiz quyidagilarni o‘z ichiga olishi kerak:
+Ishlatiladigan Algoritmlarning Tushuntirishi:
+Talabalar o‘rtacha bahosini hisoblash.
+Akademik xavf haqida ogohlantirishlarni aniqlash.
+Davomat va baholarni qayd etish.
+Qisqacha hisobotlarni yaratish.
+Kamida ikkita asosiy jarayon uchun Oqim diagrammalari (Flowcharts) yoki Psevdokod.
+Ilova arxitekturasi haqida strukturaviy tavsif.
+Quyidagilarni ko‘rsatuvchi Sinf diagrammasi (Class diagram):
+Abstrakt asosiy sinflar.
+Vorislik.
+Xususiyatlarning inkapsulyatsiyasi.
+Polimorfik usullar.
+Shuningdek, siz dizayn qarorlarini asoslashingiz va algoritmlaringiz amaliyotga qanday mos kelishini tushuntirishingiz shart.
+2-Vazifa – Dasturlash Paradigmalari Tahlili
+Quyidagilarni o‘z ichiga olgan analitik bo‘lim yozing:
+Protsedurali, Obyektga yo‘naltirilgan va Voqea-asosli (Event-driven) dasturlash ta’riflari.
+Ularning xususiyatlari va farqlarini tushuntirish.
+Har bir paradigma o‘z dasturingizda qayerda paydo bo‘lishini namoyish etish.
+OOP sizning yechimingizda qanchalik samarali ishlatilganligini baholash.
+Abstarktsiya, vorislik, polimorfizm va inkapsulyatsiyani qanday qo‘llab-quvvatlashini tushuntirish.
+Bu tahlil sizning shaxsiy dastur tuzilmangizga asoslangan bo‘lishi kerak.
+3-Vazifa – Tizimni Amaliyotga Tatbiq Etish
+Siz to‘liq funktsional, konsol asosidagi ilovani amalga oshirishingiz shart, u quyidagilarni o‘z ichiga oladi:
+OOP Talablari
+Abstrakt klass yoki interfeys 
+Vorislik ( User → Admin, Teacher, Student).
+Polimorfizm (rolga xos xatti-harakatlar, hisobot yaratish va h.k.).
+Inkapsulyatsiya (shaxsiy/himoyalangan atributlar, properties dan foydalanish).
+Funktsional Talablar
+Konsol orqali foydalanuvchini autentifikatsiya qilish (tasdiqlash).
+Rolga xos menyular.
+Davomatni kuzatish.
+Topshiriq/baho boshqaruvi.
+Talabalar taraqqiyoti tahlili (analytics).
+Faylga asoslangan saqlash (JSON/CSV/TXT).
+Xatolarni boshqarish (noto‘g‘ri ma’lumotlar, fayl topilmasligi va h.k.).
+Texnik Talablar
+Kamida ikkita dekorator, masalan:
+@require_role (kirishni nazorat qilish uchun).
+@log_action (tizimni yozib borish uchun).
+Funksiyalar modulli va qayta ishlatiladigan bo‘lishi shart.
+Ko‘p faylli loyiha tuzilmasi:
+main.py, models.py, storage.py, decorators.py, ui.py.
+IDE vositalaridan foydalanish (qidirish, disk raskadrovka, refaktoring).
+Chiqishlar (Outputs)
+Barcha o‘zaro aloqalar uchun konsol chiqishi.
+Avtomatik ravishda yaratilgan hisobot fayllari (TXT/CSV).
+
+4-Vazifa – Debugging, Testlash va Kodlash Standartlari
+Siz quyidagilarni taqdim etishingiz shart:
+Uchragan barcha xatolarning (buglarning) tavsifi.
+Disk raskadrovka jarayonining skrinshotlari yoki tushuntirishi.
+Qaysi maxsus disk raskadrovka yaxshilanganligini tushuntirish.
+Quyidagilarga murojaat qilgan holda Kodlash standartlari bo‘limi:
+Nomlash qoidalari (Naming rules).
+Modul tuzilmasi.
+Docstringlar va sharhlar.
+Muvofiqlik tamoyillari (Consistency principles).
+Siz kodlash standartlari nima uchun parvarishlash (maintainability) va jamoaviy ish uchun muhimligini asoslashingiz shart.
+
+Topshirish kerak bo`lgan bo`lgan hujjatlar 
+Talabalar quyidagilarni topshirishlari shart:
+Loyiha papkasi:
+Manba kodi ( fayllar).
+Ma’lumotlarni saqlash fayllari (JSON/CSV/TXT).
+Log fayllari.
+Avtomatik yaratilgan hisobot namunalar.
+Yozma hisobot (akademik formatlash qoidalariga rioya qilingan holda), o‘z ichiga olgan:
+1-Vazifa dizayn hujjatlari.
+2-Vazifa paradigmalar tahlili.
+3-Vazifa amaliyotga tatbiq etish va IDE ishlatish bo‘yicha mulohaza.
+4-Vazifa disk raskadrovka + kodlash standartlari bo‘limi.
+Flow chart yoki algoritm diagrammalari.

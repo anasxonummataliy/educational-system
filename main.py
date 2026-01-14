@@ -1,12 +1,12 @@
-from termcolor import colored
-from utils import draw_box
+from ui import ConsoleUI
+from storage import Storage
 
 
 def main():
-    draw_box("Talabalar Taraqqiyoti va Davomatini Boshqarish Tizimi")
-    to_choice = {}
-    choice = input()
+    storage = Storage()
+    ui = ConsoleUI(storage)
+    ui.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
