@@ -1,18 +1,19 @@
-# Educational System (Console)
 
-Simple console-based Student Management and Attendance system demonstrating OOP, decorators, and file storage.
+# Talabalar Boshqaruvi Tizimi (Konsol)
 
-Run:
+Konsol asosidagi Talabalar Davomati va Baholarini Boshqarish tizimi. Loyihada OOP, dekoratorlar va faylga asoslangan saqlash misol qilib keltirilgan.
+
+Ishga tushirish:
 
 ```bash
 python3 main.py
 ```
 
-Install deps:
+Bog'lanmalar o'rnatish:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Files:
-- `main.py`, `models.py`, `storage.py`, `decorators.py`, `ui.py`
+Fayllar:
+- `main.py`, `models.py`, `storage.py`, `decorators.py`, `ui.py`, `reports.py`
