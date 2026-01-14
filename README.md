@@ -1,3 +1,12 @@
+# Console Educational System
+
+This project implements a simple console-based educational system demonstrating OOP principles, modularity, decorators for access control and logging, and file-based persistence (JSON/CSV/TXT).
+
+Run:
+
+```bash
+python3 main.py
+```
 
 # Talabalar Boshqaruvi Tizimi (Konsol)
 
