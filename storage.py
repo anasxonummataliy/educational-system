@@ -12,13 +12,13 @@ def _ensure_file():
             json.dump({"users": [], "subjects": []}, f)
 
 
-def load_data():
+def load_data() -> Dict[str, Any]:
     _ensure_file()
     with open(DATA_FILE, "r") as f:
         return json.load(f)
 
 
-def save_data(data):
+def save_data(data: Dict[str, Any]):
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=2)
 
@@ -110,13 +110,47 @@ def update_user(username: str, fields: Dict):
     return False
 
 
+def _normalize_grades(grades_data):
+    if not grades_data:
+        return {}
+
+    if isinstance(grades_data, dict):
+        normalized = {}
+        for key, value in grades_data.items():
+            if isinstance(value, dict):
+                normalized[key] = value
+            elif isinstance(value, (int, float)):
+                if key not in normalized:
+                    normalized["GENERAL"] = {}
+                normalized["GENERAL"][
+                    f"task_{len(normalized.get('GENERAL', {}))}"
+                ] = value
+        return normalized
+    return {}
+
+
+def _normalize_attendance(attendance_data):
+    if not attendance_data:
+        return {}
+
+    if isinstance(attendance_data, dict):
+        normalized = {}
+        for key, value in attendance_data.items():
+            if isinstance(value, list):
+                normalized[key] = value
+        return normalized
+    elif isinstance(attendance_data, list):
+        return {"GENERAL": attendance_data}
+    return {}
+
+
 def instantiate_user_from_record(rec: Dict):
     role = rec.get("role", "").capitalize()
 
     if role == "Student":
         s = Student(rec["username"], rec["password"])
-        s._grades = rec.get("grades", {})
-        s._attendance = rec.get("attendance", {})
+        s._grades = _normalize_grades(rec.get("grades", {}))
+        s._attendance = _normalize_attendance(rec.get("attendance", {}))
         return s
     elif role == "Teacher":
         t = Teacher(rec["username"], rec["password"])

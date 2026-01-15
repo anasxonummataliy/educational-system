@@ -72,13 +72,17 @@ class Student(User):
     def average_by_subject(self, subject_code: str):
         if subject_code not in self._grades or not self._grades[subject_code]:
             return None
-        return statistics.mean(self._grades[subject_code].values())
+        grades = self._grades[subject_code]
+        if isinstance(grades, dict):
+            return statistics.mean(grades.values())
+        return None
 
     @property
     def overall_average(self):
         all_grades = []
-        for subject_grades in self._grades.values():
-            all_grades.extend(subject_grades.values())
+        for subject_code, subject_grades in self._grades.items():
+            if isinstance(subject_grades, dict):
+                all_grades.extend(subject_grades.values())
         if not all_grades:
             return None
         return statistics.mean(all_grades)
