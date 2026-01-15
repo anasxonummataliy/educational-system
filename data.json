@@ -17,8 +17,16 @@
       "username": "xojiakbar",
       "password": "1234",
       "role": "Student",
-      "grades": {},
-      "attendance": {}
+      "grades": {
+        "MATH1": {
+          "project": 86.0
+        }
+      },
+      "attendance": {
+        "MATH1": [
+          "2026-01-15"
+        ]
+      }
     }
   ],
   "subjects": [
