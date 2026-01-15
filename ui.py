@@ -1,5 +1,6 @@
 import os
 import csv
+import statistics
 import time
 import session
 import decorators
@@ -666,7 +667,7 @@ def export_report(student: Student):
 
     filename = f"report_{student.username}.txt"
 
-    with open(filename, "w", encoding="utf-8") as f:
+    with open(filename, "w") as f:
         f.write("=" * 50 + "\n")
         f.write("TALABA HISOBOTI\n")
         f.write("=" * 50 + "\n\n")
