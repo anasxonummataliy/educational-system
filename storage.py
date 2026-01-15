@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Dict, Any, List
+from typing import Dict, Any
 from models import Student, Teacher, Admin
 
 DATA_FILE = "data.json"
@@ -23,7 +23,7 @@ def save_data(data: Dict[str, Any]):
         json.dump(data, f, indent=2)
 
 
-def list_users() -> List[Dict[str, Any]]:
+def list_users():
     data = load_data()
     return data.get("users", [])
 
