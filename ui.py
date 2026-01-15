@@ -98,10 +98,10 @@ def admin_menu(admin: Admin):
 
     while True:
         clear()
-        header(f"ADMIN - {admin.username}")
+        header(f"ADMIN - {admin.username.upper()}")
         print(
             colored(
-                "1. Yaratish\n2. O'chirish\n3. Parol\n4. Loglar\n5. Chiqish", "cyan"
+                "1. Foydalanuvchi yaratish\n2. Foydalanuvchi o'chirish\n3. Parol\n4. Loglar\n5. Chiqish", "cyan"
             )
         )
 
@@ -142,7 +142,7 @@ def create_user():
             print(colored("\n❌ Xato tanlov", "red"))
             return
 
-    pwd = getpass.getpass(colored("Parol: ", "cyan"))
+    pwd = input(colored("Parol: ", "cyan"))
     add_user(obj(uname, pwd))
     print(colored(f"\n✓ Yaratildi: {uname} ({role})", "green"))
 
@@ -214,7 +214,7 @@ def teacher_menu(teacher: Teacher):
 
     while True:
         clear()
-        header(f"O'QITUVCHI - {teacher.username}")
+        header(f"O'QITUVCHI - {teacher.username.upper()}")
         print(colored("1. Davomat\n2. Baho\n3. Tahlil\n4. Chiqish", "cyan"))
 
         choice = input(colored("\n> ", "cyan")).strip()
@@ -327,8 +327,8 @@ def student_menu(student: Student):
 
     while True:
         clear()
-        header(f"TALABA - {student.username}")
-        print(colored("1. Taraqqiyot\n2. Davomat\n3. Eksport\n4. Chiqish", "cyan"))
+        header(f"TALABA - {student.username.upper()}")
+        print(colored("1. Baholar\n2. Davomat\n3. Eksport\n4. Chiqish", "cyan"))
 
         choice = input(colored("\n> ", "cyan")).strip()
 
@@ -346,7 +346,7 @@ def student_menu(student: Student):
 
 def view_progress(student: Student):
     clear()
-    header("TARAQQIYOT")
+    header("BAHOLAR")
 
     progress = student.view_progress()
 

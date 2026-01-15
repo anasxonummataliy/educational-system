@@ -7,15 +7,15 @@
     },
     {
       "username": "anasxon",
-      "password": "1234",
+      "password": "qwerty",
       "role": "Student",
       "grades": {},
       "attendance": []
     },
     {
-      "username": "anasxon",
+      "username": "qwerty",
       "password": "1234",
-      "role": "Admin"
+      "role": "Teacher"
     }
   ]
 }
