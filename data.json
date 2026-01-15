@@ -2,33 +2,33 @@
   "users": [
     {
       "username": "admin",
-      "password": "1234",
+      "password": "admin",
       "role": "Admin"
     },
     {
       "username": "anasxon",
-      "password": "qwerty",
-      "role": "Student",
-      "grades": {
-        "l": 86.0
-      },
-      "attendance": []
-    },
-    {
-      "username": "qwerty",
       "password": "1234",
       "role": "Teacher",
       "subjects": [
-        "MATH202"
+        "MATH1"
       ]
+    },
+    {
+      "username": "xojiakbar",
+      "password": "1234",
+      "role": "Student",
+      "grades": {},
+      "attendance": {}
     }
   ],
   "subjects": [
     {
       "name": "Matematika",
-      "code": "MATH202",
-      "teacher": "qwerty",
-      "students": []
+      "code": "MATH1",
+      "teacher": "anasxon",
+      "students": [
+        "xojiakbar"
+      ]
     }
   ]
 }
