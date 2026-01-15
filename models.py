@@ -8,7 +8,7 @@ class User(ABC):
     def __init__(self, username: str, password: str, role: str):
         self.username = username
         self._password = password
-        self.role = role
+        self.role = role.strip().capitalize()
 
     def authenticate(self, password: str) -> bool:
         return self._password == password

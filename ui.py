@@ -1,6 +1,12 @@
 import os
-from signal import pause
+import csv
 import time
+import session
+import decorators
+
+from utils import pause, clear, header
+from termcolor import colored
+from models import Student, Teacher, Admin
 from storage import (
     list_users,
     find_user,
@@ -10,13 +16,6 @@ from storage import (
     delete_user,
     load_data,
 )
-from models import Student, Teacher, Admin
-import decorators
-import session
-import csv
-from termcolor import colored
-
-from utils import clear, header
 
 
 def auth():
@@ -143,7 +142,7 @@ def create_user():
             print(colored("\n❌ Xato tanlov", "red"))
             return
 
-    pwd = input(colored("Parol: ", "cyan"))
+    pwd = getpass.getpass(colored("Parol: ", "cyan"))
     add_user(obj(uname, pwd))
     print(colored(f"\n✓ Yaratildi: {uname} ({role})", "green"))
 
@@ -193,7 +192,6 @@ def reset_password():
 
 
 def view_logs():
-    """Loglarni ko'rish"""
     clear()
     header("LOGLAR")
 
@@ -203,9 +201,6 @@ def view_logs():
             print(colored(logs if logs.strip() else "Bo'sh", "white"))
     else:
         print(colored("Loglar yo'q", "yellow"))
-
-
-# ============= TEACHER MENU =============
 
 
 @decorators.require_role("Teacher")
@@ -319,7 +314,6 @@ def analyze_class(teacher: Teacher):
         writer.writerow(["Xavf", ";".join(at_risk)])
 
     print(colored("\n✓ Saqlandi: class_report.csv", "green"))
-
 
 
 @decorators.require_role("Student")

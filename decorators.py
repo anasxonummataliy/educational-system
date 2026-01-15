@@ -20,7 +20,9 @@ def require_role(*allowed_roles):
             user = getattr(session, "current_user")
             if not user:
                 raise PermissionError("Tizimga kirish talab qilinadi")
-            if user.role not in allowed_roles:
+            user_role = user.role.lower()
+            allowed_roles_lower = [r.lower() for r in allowed_roles]
+            if user_role not in allowed_roles_lower:
                 raise PermissionError(f"Ruxsat yo'q. Kerak: {allowed_roles}")
             return func(*args, **kwargs)
 
