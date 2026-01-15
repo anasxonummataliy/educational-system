@@ -9,7 +9,9 @@
       "username": "anasxon",
       "password": "qwerty",
       "role": "Student",
-      "grades": {},
+      "grades": {
+        "l": 86.0
+      },
       "attendance": []
     },
     {
